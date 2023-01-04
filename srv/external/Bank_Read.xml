@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="1.0"
+    xmlns:edmx="http://schemas.microsoft.com/ado/2007/06/edmx"
+    xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata"
+    xmlns:sap="http://www.sap.com/Protocols/SAPData">
+    <edmx:Reference Uri="https://host:port/sap/opu/odata/iwfnd/catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_AGGREGATION',Version='0001',SAP__Origin='LOCAL')/$value"
+        xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="Org.OData.Aggregation.V1" Alias="Aggregation"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="https://host:port/sap/opu/odata/iwfnd/catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_ANALYTICS',Version='0001',SAP__Origin='LOCAL')/$value"
+        xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="com.sap.vocabularies.Analytics.v1" Alias="Analytics"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="https://host:port/sap/opu/odata/iwfnd/catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_CAPABILITIES',Version='0001',SAP__Origin='LOCAL')/$value"
+        xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="Org.OData.Capabilities.V1" Alias="Capabilities"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="https://host:port/sap/opu/odata/iwfnd/catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_CODELIST',Version='0001',SAP__Origin='LOCAL')/$value"
+        xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="com.sap.vocabularies.CodeList.v1" Alias="SAP__CodeList"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="https://host:port/sap/opu/odata/iwfnd/catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_COMMON',Version='0001',SAP__Origin='LOCAL')/$value"
+        xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="com.sap.vocabularies.Common.v1" Alias="Common"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="https://host:port/sap/opu/odata/iwfnd/catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_COMMUNICATION',Version='0001',SAP__Origin='LOCAL')/$value"
+        xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="com.sap.vocabularies.Communication.v1" Alias="Communication"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="https://host:port/sap/opu/odata/iwfnd/catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_MEASURES',Version='0001',SAP__Origin='LOCAL')/$value"
+        xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="Org.OData.Measures.V1" Alias="Measures"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="https://host:port/sap/opu/odata/iwfnd/catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_PERSONALDATA',Version='0001',SAP__Origin='LOCAL')/$value"
+        xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="com.sap.vocabularies.PersonalData.v1" Alias="PersonalData"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="https://host:port/sap/opu/odata/iwfnd/catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_UI',Version='0001',SAP__Origin='LOCAL')/$value"
+        xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="com.sap.vocabularies.UI.v1" Alias="UI"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="https://host:port/sap/opu/odata/iwfnd/catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_VALIDATION',Version='0001',SAP__Origin='LOCAL')/$value"
+        xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="Org.OData.Validation.V1" Alias="Validation"/>
+    </edmx:Reference>
+    <edmx:DataServices m:DataServiceVersion="2.0">
+        <Schema Namespace="API_BANKDETAIL_SRV" xml:lang="en" sap:schema-version="1"
+            xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+            <Annotation Term="Core.SchemaVersion" String="1.1.0"
+                xmlns="http://docs.oasis-open.org/odata/ns/edm"/>
+                <EntityType Name="A_BankDetailType" sap:label="Bank Details" sap:content-version="1">
+                    <Key>
+                        <PropertyRef Name="BankCountry"/>
+                        <PropertyRef Name="BankInternalID"/>
+                    </Key>
+                    <Property Name="BankCountry" Type="Edm.String" Nullable="false" MaxLength="3" sap:display-format="UpperCase" sap:label="Bank Country/Region" sap:quickinfo="Country/Region Key of Bank"/>
+                    <Property Name="BankInternalID" Type="Edm.String" Nullable="false" MaxLength="15" sap:display-format="UpperCase" sap:label="Bank Key" sap:quickinfo="Bank Keys"/>
+                    <Property Name="BankName" Type="Edm.String" MaxLength="60" sap:label="Bank Name" sap:quickinfo="Name of Financial Institution"/>
+                    <Property Name="SWIFTCode" Type="Edm.String" MaxLength="11" sap:display-format="UpperCase" sap:label="SWIFT/BIC" sap:quickinfo="SWIFT/BIC for International Payments"/>
+                    <Property Name="BankGroup" Type="Edm.String" MaxLength="2" sap:display-format="UpperCase" sap:label="Bank group" sap:quickinfo="Bank group (bank network)"/>
+                    <Property Name="BankNumber" Type="Edm.String" MaxLength="15" sap:display-format="UpperCase" sap:label="Bank Number"/>
+                    <Property Name="Region" Type="Edm.String" MaxLength="3" sap:display-format="UpperCase" sap:label="Region" sap:quickinfo="Region (State, Province, County)"/>
+                    <Property Name="StreetName" Type="Edm.String" MaxLength="35" sap:label="Street" sap:quickinfo="Street and House Number"/>
+                    <Property Name="CityName" Type="Edm.String" MaxLength="35" sap:label="City"/>
+                    <Property Name="Branch" Type="Edm.String" MaxLength="40" sap:label="Bank Branch"/>
+                </EntityType>
+                <EntityContainer Name="API_BANKDETAIL_SRV_Entities" m:IsDefaultEntityContainer="true" sap:message-scope-supported="true" sap:supported-formats="atom json xlsx">
+                    <EntitySet Name="A_BankDetail" EntityType="API_BANKDETAIL_SRV.A_BankDetailType" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1"/>
+                </EntityContainer>
+                <Annotations Target="API_BANKDETAIL_SRV.API_BANKDETAIL_SRV_Entities"
+                    xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                    <Annotation Term="Common.ApplyMultiUnitBehaviorForSortingAndFiltering" Bool="true"/>
+                </Annotations>
+                <Annotations Target="API_BANKDETAIL_SRV.API_BANKDETAIL_SRV_Entities/A_BankDetail"
+                    xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                    <Annotation Term="Capabilities.ReadRestrictions">
+                        <Record>
+                            <PropertyValue Property="Description" String="Read bank details"/>
+                            <PropertyValue Property="LongDescription" String="Reads bank details, including bank ctry/reg, bank key, bank name, SWIFT code, bank group, bank number, region, city, and branch."/>
+                            <PropertyValue Property="ReadByKeyRestrictions">
+                                <Record>
+                                    <PropertyValue Property="Description" String="Read bank details by key"/>
+                                    <PropertyValue Property="LongDescription" String="Reads bank details by bank cty/reg and bank key, including bank name, SWIFT code, bank group, bank number, region, city, and branch."/>
+                                </Record>
+                            </PropertyValue>
+                        </Record>
+                    </Annotation>
+                </Annotations>
+                <atom:link rel="self" href="https://host:port/sap/opu/odata/sap/API_BANKDETAIL_SRV/$metadata"
+                    xmlns:atom="http://www.w3.org/2005/Atom"/>
+                    <atom:link rel="latest-version" href="https://host:port/sap/opu/odata/sap/API_BANKDETAIL_SRV/$metadata"
+                        xmlns:atom="http://www.w3.org/2005/Atom"/>
+                    </Schema>
+                </edmx:DataServices>
+            </edmx:Edmx>
