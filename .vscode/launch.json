@@ -18,6 +18,15 @@
       "env": {
         "run.config": "{\"handlerId\":\"lcap_run_config_handler_id\",\"runnableId\":\"{\\\"projectPath\\\":\\\"/home/user/projects/REST\\\",\\\"profileName\\\":\\\"\\\"}\"}"
       }
+    },
+    {
+      "name": "Debug Services",
+      "type": "node",
+      "request": "launch",
+      "runtimeExecutable": "cds",
+      "args": [
+        "watch"
+      ]
     }
   ]
 }

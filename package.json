@@ -78,19 +78,17 @@
       "Bills": {
         "kind": "rest",
         "model": "srv/external/BillsV2",
-        "impl": "srv/utils/OpenApiRemoteService.js",
-      
-      "[production]": {
+        "impl": "srv/external/BillsV2.js",
+
         "credentials": {
           "destination": "apihub_sandbox",
           "path": "subscriptionbilling/api/bill/v2/bills"
-      
+
         }
-      }
     }
-  }    
-      
+  }
+
     },
-  
+
   "lcap": true
 }
